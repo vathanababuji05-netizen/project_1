@@ -1,0 +1,23 @@
+from sqlalchemy import create_engine
+
+# MySQL Connection Details
+username = "root"
+password = "2702"
+host = "localhost"
+port = "3306"
+database = "food_delivery_db"
+
+# Create MySQL Engine
+engine = create_engine(
+    f"mysql+pymysql://root:2702@localhost:3306/food_delivery_db"
+)
+
+# Upload DataFrame to MySQL
+df.to_sql(
+    name='orders',
+    con=engine,
+    if_exists='replace',  # replace existing table
+    index=False
+)
+
+print("Data uploaded successfully to MySQL!")
